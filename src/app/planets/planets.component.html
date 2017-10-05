@@ -1,0 +1,18 @@
+
+  <div>
+    <button (click)="getPlanets()">Load planets</button>
+  </div>
+<!--  <div  *ngIf="planets"> 
+    <h2>{{planets.climate}}</h2>
+    <h2>{{planets.created}}</h2>
+  </div> -->
+  
+ 
+<!--   
+<div  *ngIf="data3">
+  <li>hola</li> -->
+  <ul *ngFor="let planet of planets">
+      <li>{{planet.name}}</li>
+      <li>{{planet.climate}}</li>
+  </ul>
+
