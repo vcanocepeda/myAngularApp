@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { PlanetsService } from './planets.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {NgbRadioGroup } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-planets',
@@ -23,7 +25,7 @@ export class PlanetsComponent implements OnInit {
 
   getPlanets() {
     this.planetsService.getPlanets().subscribe(
-      data => { this.planets = data},
+      data => { this.planets = data.results},
       err => { this.planets_error = true }
     );
   }

@@ -1,6 +1,7 @@
 import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { PeopleComponent } from './people/people.component';
@@ -16,7 +17,8 @@ import { PlanetsService } from './planets/planets.service';
   ],
   imports: [
     HttpModule,
-    BrowserModule
+    BrowserModule,
+    NgbModule.forRoot()
   ],
   providers: [ PeopleService ,
                PlanetsService],
