@@ -10,7 +10,7 @@ export class PlanetsService {
   }
   
   // Uses http.get() to load a single JSON file
-  getPlanets() {
-    return this.http.get('https://swapi.co/api/planets').map((res:Response) => res.json());
+  getPlanets(endpoint :string) {
+    return this.http.get(endpoint).map((res:Response) => res.json());
   }
 }

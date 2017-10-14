@@ -1,6 +1,8 @@
 
-  <div>
-    <button type="button" class="btn btn-primary" (click)="getPlanets()">Load planets</button>
+  <div class="row">
+    <div class="col-md-12" style="text-align: center">
+      <button type="button" class="btn btn-primary" (click)="getPlanets()">Load planets</button>
+    </div>   
   </div>
 
 <div *ngIf="planets" style="text-align:center" >
@@ -8,20 +10,44 @@
   <thead>
     <tr>
       <th>Planet</th>
+      <th>Rotation period</th>      
+      <th>Orbital period</th>
+      <th>Diameter</th>
       <th>Climate</th>
-      <th>Edit</th>
+      <th>Gravity</th>
+      <th>Terrain</th>
+      <th>Surface water</th>
+      <th>Population</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let planet of planets">
-      <th>{{planet.name}}</th>
+    <tr *ngFor="let planet of planets.results">
+      <th>{{planet.name}}</th>    
+      <th>{{planet.rotation_period}}</th>
+      <th>{{planet.orbital_period}}</th>
+      <th>{{planet.diameter}}</th>
       <th>{{planet.climate}}</th>
+      <th>{{planet.gravity}}</th>
+      <th>{{planet.terrain}}</th>
+      <th>{{planet.surface_water}}</th>
+      <th>{{planet.population}}</th>
       <th>
       <button type="button" class="btn btn-info">Edit</button>
     </th>
     </tr>
   </tbody>
   </table>
+    <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">
+      <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+    </div>
+    <div class="col-sm-4" style="background-color:lavenderblush;">{{planets_endpoint}}</div>
+    <div class="col-sm-4" style="background-color:lavender;">
+      <button type="button" class="btn btn-primary" (click)="next()">Next</button>
+    </div>
+  </div>
+
 </div>
 
 <!-- npm uninstall --save bootstrap -->

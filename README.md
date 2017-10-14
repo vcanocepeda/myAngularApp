@@ -26,3 +26,29 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## How to use Observable messages
+import {Http} from 'angular2/http';
+import {Message} from '../models/message';
+import {Injectable} from 'angular2/core';
+import {Observable} from 'rxjs/Observable';
+import {AppSettings} from '../appSettings';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class MessageService {
+
+    constructor(private http: Http) { }
+
+    getMessages(): Observable<Message[]> {
+        return this.http.get(AppSettings.API_ENDPOINT+'/messages')
+            .map(response => response.json())
+            .map((messages: Object[]) => {
+                return messages.map(message => this.parseData(message));
+            });
+    }
+
+    private parseData(data): Message {
+        return new Message(data);
+    }
+}
