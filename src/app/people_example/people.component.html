@@ -1,0 +1,28 @@
+<p>
+  people works!
+</p>
+  <div>
+    <button (click)="readData2()">Load data2</button>
+  </div>
+  <div  *ngIf="data2"> 
+    <h2>{{data2.profile.username}}</h2>
+    <h2>{{data2.profile.bio}}</h2>
+    <h2>{{data2.profile.image}}</h2>
+    <h2>{{data2.profile.following}}</h2>
+  </div>
+  <div>
+    <button (click)="getPeople()">Load data3</button>
+  </div>
+ 
+   
+<div  *ngIf="data3">
+  <li>hola</li>
+  <ul *ngFor="let profile of data3">
+      <li>hola</li>
+      <li>{{profile.username}}</li>
+  </ul>
+</div>
+
+  <ul *ngFor="let item of mySentences">
+      <li>{{item.id}}</li>
+  </ul>

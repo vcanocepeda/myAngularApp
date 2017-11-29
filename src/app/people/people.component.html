@@ -1,28 +1,33 @@
-<p>
+<div *ngIf="peopleObs; else loading" style="text-align:center" >
+  <ng-template #loading>Loading Data...</ng-template>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Height</th>      
+      <th>Mass</th>
+      <th>Hair</th>
+      <th>Skin</th>
+      <th>Eye</th>
+      <th>Bith year</th>
+      <th>Gender</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of peopleObs | async">
+      <th>{{person.name}}</th>    
+      <th>{{person.height}}</th>
+      <th>{{person.mass}}</th>
+      <th>{{person.hair_color}}</th>
+      <th>{{person.eye_color}}</th>
+      <th>{{person.birth_year}}</th>
+      <th>{{person.gender}}</th>
+      <th>
+      <button type="button" class="btn btn-info">Edit</button>
+    </th>
+    </tr>
+  </tbody>
+  </table><p>
   people works!
 </p>
-  <div>
-    <button (click)="readData2()">Load data2</button>
-  </div>
-  <div  *ngIf="data2"> 
-    <h2>{{data2.profile.username}}</h2>
-    <h2>{{data2.profile.bio}}</h2>
-    <h2>{{data2.profile.image}}</h2>
-    <h2>{{data2.profile.following}}</h2>
-  </div>
-  <div>
-    <button (click)="getPeople()">Load data3</button>
-  </div>
- 
-   
-<div  *ngIf="data3">
-  <li>hola</li>
-  <ul *ngFor="let profile of data3">
-      <li>hola</li>
-      <li>{{profile.username}}</li>
-  </ul>
-</div>
-
-  <ul *ngFor="let item of mySentences">
-      <li>{{item.id}}</li>
-  </ul>

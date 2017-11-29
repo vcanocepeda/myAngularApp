@@ -1,0 +1,38 @@
+
+<form>
+<div class="row">
+  <div class="col-sm-4" style="background-color:lavender;"><label for="name">Name: </label></div>
+  <div class="col-sm-8" style="background-color:lavenderblush;">
+    <input type="text" name="name" required class="txt" placeholder="Name" [(ngModel)]="planet.name" #name="ngModel">
+  </div>
+  <div [hidden]="name.valid || name.pristine" class="error">
+    Name is required
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4" style="background-color:lavender;"><label for="population">Population: </label></div>
+  <div class="col-sm-8" style="background-color:lavenderblush;">
+    <input type="text" name="population" required class="txt" [(ngModel)]="planet.population" #population="ngModel">
+  </div>
+  <div [hidden]="population.valid || population.pristine" class="error">
+    Population is required
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4" style="background-color:lavender;"><label for="profession">Profession:</label></div>
+  <div class="col-sm-8" style="background-color:lavenderblush;">
+    <select name="profession" [(ngModel)]="planet.profession">
+     <option *ngFor="let profession of professions" [value]="profession">{{profession}}</option>
+    </select>
+  </div>
+</div>
+
+</form>
+
+<button type="submit" class="btn btn-success" (click)="submit()">Submit</button>
+
+
+<div class="row">
+  <div class="col-sm-6" style="background-color:lavenderblush;">{{planet.name}}</div>
+  <div class="col-sm-6" style="background-color:lavenderblush;">{{planet.population}}</div>
+</div>

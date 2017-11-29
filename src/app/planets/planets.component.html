@@ -1,9 +1,16 @@
 
-  <div class="row">
-    <div class="col-md-12" style="text-align: center">
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4" style="text-align: center">
       <button type="button" class="btn btn-primary" (click)="getPlanets()">Load planets</button>
-    </div>   
-  </div>
+    </div>
+    <div class="col-sm-4" style="text-align: left" >
+      <a routerLink="/planet-create" class="btn btn-default btn-lg" routerLinkActive="active">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </a>
+    </div>
+</div>
 
 <div *ngIf="planets" style="text-align:center" >
   <table class="table table-hover">
@@ -50,5 +57,6 @@
 
 </div>
 
-<!-- npm uninstall --save bootstrap -->
+<!-- npm uninstall --save bootstrap
+We have to implement Routes, Edit ... -->
 
